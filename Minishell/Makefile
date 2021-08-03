@@ -1,6 +1,14 @@
 MINISHELL		=	minishell
 
-SRCS			=	srcs/utils/get* srcs/lst/* srcs/utils/ft_strlen.c\
+SRCS			=	srcs/lst/ft_lst_add.c\
+					srcs/lst/ft_lst_new.c\
+					srcs/parse/inputs.c\
+					srcs/utils/ft_strlen.c\
+					srcs/utils/get_next_line.c\
+					srcs/utils/get_next_line_utils.c\
+					srcs/utils/libft.c\
+					srcs/utils/msg_error.c\
+					srcs/minishell.c\
 
 SANITIZE		=	-fsanitize=address
 
@@ -19,7 +27,7 @@ CYAN			= \033[0;36m
 RESET			= \033[0m
 
 $(MINISHELL):
-	$(GCC) minishell.c $(CFLAGS) $(SRCS) -o $(MINISHELL)
+	$(GCC) $(CFLAGS) $(SRCS) -o $(MINISHELL)
 
 all:	$(MINISHELL)
 

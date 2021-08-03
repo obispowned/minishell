@@ -11,47 +11,45 @@
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
-
 # define MINISHELL_H
 
-# include <stdio.h>
-# include <unistd.h>
-# include <string.h>
-# include <stdlib.h>
-# include <fcntl.h>
+# include <sys/types.h>
+# include <sys/stat.h>
 # include <sys/wait.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <signal.h>
+# include <dirent.h>
+# include <string.h>
+# include <fcntl.h>
 # include <term.h>
 # include <termios.h>
-# include "headers/lst.h"
-# include "headers/libft.h"
+# include "lst.h"
+# include "libft.h"
 
 #define ARG_MAX 262144
 
 typedef struct	s_minishell
 {
-	int			parser_block;
-	int			dollar_question;
-	char		**fixed_tab;
-	char		**str_variables;
-	char		**fixed_str_variables;
-	int			**int_variables;
-	int			**fixed_int_variables;
+	char **envv;
+	char *path_bin;
+
 }				t_minishell;
 
+/*
+**
+*/
+int		get_next_line(int fd, char **line);
 
 /*
 **	Inicializacion.c
 */
 
-void			minishell_init(t_minishell *m);
-
-int		user_input(char **line, t_list *list);
-char	*ft_strdup(const char *src);
+/*
+**	prints
+*/
 int		print_line(char **file, char **line, int i);
-int		get_next_line(int fd, char **line);
-char	*ft_strchr(char *s, char c);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_substr(char *s, unsigned int start, unsigned int len);
 
 
 #endif

@@ -10,54 +10,51 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "minishell.h"
+#include "../../headers/minishell.h"
 
-
-/*
-**	Recibe un array de strings y libera todo.
-*/
-void		free_tab(char **tab)
+/*void		free_tab(char **str)
 {
-	char	**fixed_tab;
+	char	**tabb;
 
-	fixed_tab = tab;
-	while (*tab)
+	tabb = str;
+	while (*tabb)
 	{
-		free(*tab);
-		tab++;
+		free(*tabb);
+		tabb++;
 	}
-	free(fixed_tab);
-}
+	free(tabb);
+}*/
 
 /*
 **	Recibe una serie de cadenas y devuelve esa misma matriz pero con su contenido modificado.
 **	Ahora, cada cadena que comenzó con uno o varios espacios comienza sin ellos.
 */
-static char	**tab_remove_front_spaces(char **tab)
+/*static char	**tab_remove_front_spaces(char **str)
 {
-	char	**fixed_tab;
+	char	**tabb;
 	char	*str;
 	char	*aux;
 
-	fixed_tab = tab;
-	while (*tab)
+	tabb = str;
+	while (*str)
 	{
-		aux = *tab;
-		while (**tab == ' ' || **tab == '\t')
-			(*tab)++;
-		str = ft_strdup(*tab);
+		aux = *str;
+		while (**str == ' ' || **str == '\t')
+			(*str)++;
+		str = ft_strdup(*str);
 		free(aux);
-		*tab = str;
-		tab++;
+		*str = str;
+		str++;
 	}
-	return (fixed_tab);
-}
+	return (tabb);
+}*/
 
 /*
 **	Recibe una serie de cadenas y devuelve esa misma matriz pero con su contenido modificado.
 **	Ahora, cada cadena que no tenga más de una palabra tiene todos sus espacios eliminados,
 **	y aquellas cadenas con más de una palabra, solo tiene un espacio entre la primera y la segunda.
 */
+/*
 static char	**tab_remove_middle_spaces(char **t, char **fixed_t)
 {
 	char	*str;
@@ -84,35 +81,35 @@ static char	**tab_remove_middle_spaces(char **t, char **fixed_t)
 		t++;
 	}
 	return (fixed_t);
-}
+}*/
 
 
 /*
 **	Recibe una serie de cadenas y devuelve esa misma matriz pero con su contenido modificado.
 **	Ahora cada cadena que terminó con uno o varios espacios termina sin ellos.
 */
-static char	**tab_remove_last_spaces(char **tab, char **fixed_tab)
+/*static char	**tab_remove_last_spaces(char **str, char **ads)
 {
-	while (*tab)
+	while (*str)
 	{
-		*tab = str_flip(*tab);
-		tab++;
+		*str = str_flip(*str);
+		str++;
 	}
-	tab = tab_remove_front_spaces(fixed_tab);
-	while (*tab)
+	str = tab_remove_front_spaces(ads);
+	while (*str)
 	{
-		*tab = str_flip(*tab);
-		tab++;
+		*str = str_flip(*str);
+		str++;
 	}
-	return (fixed_tab);
-}
+	return (ads);
+}*/
 
 /*
 **	Recibe el puntero a una matriz de cadenas y lo llena con la lectura de la entrada del usuario (tab),
 **	el usuario puede escribir muchos comandos separados por ';' y shell debe ejecutarlo por separado
 **	La funcion devuelte un puntero a ese (tab);
 */
-char		**user_input(char ***tab)
+/*char		**user_input(char **str)
 {
 	int		sz;
 	char	input[ARG_MAX];
@@ -126,9 +123,9 @@ char		**user_input(char ***tab)
 	else
 	{
 		input[sz - 1] = 0;
-		*tab = tab_remove_front_spaces(ft_split(input, ';'));
-		*tab = tab_remove_middle_spaces(*tab, *tab);
-		*tab = tab_remove_last_spaces(*tab, *tab);
+		*str = tab_remove_front_spaces(ft_split(input, ';'));
+		*str = tab_remove_middle_spaces(*str, *str);
+		*str = tab_remove_last_spaces(*str, *str);
 	}
-	return (*tab);
-}
+	return (*str);
+}*/
