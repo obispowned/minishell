@@ -8,6 +8,7 @@ SRCS			=	srcs/lst/ft_lst_add.c\
 					srcs/utils/get_next_line_utils.c\
 					srcs/utils/libft.c\
 					srcs/utils/msg_error.c\
+					srcs/utils/env.c\
 					srcs/minishell.c\
 
 SANITIZE		=	-fsanitize=address
